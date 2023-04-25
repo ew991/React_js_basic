@@ -6,9 +6,14 @@ class Todolists extends React.Component {
     render() {
         // let { listTodo } = this.state;
         return (
-            <div className="list-todo-container">
-                <ChildTodo />
-            </div>
+            <><p>
+                SIMPLE TO DO APP with react.js(Toan)
+            </p>
+                <div className="list-todo-container">
+                    <ChildTodo />
+                </div>
+            </>
+
         )
     }
 }
