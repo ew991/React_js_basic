@@ -7,30 +7,32 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navigation from './navigation/navigation';
 import Home from './Home/home';
 import ListUser from './ex/Users/ListUsers';
+import InforUser from './ex/Users/inforUser';
 import {
-  BrowserRouter,
-  Routes,
+  BrowserRouter as Router,
+  Switch,
   Route,
-  Link,
+  Link
 } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <header className="App-header">
           <Navigation />
           <img src={logo} className="App-logo" alt="logo" />
-          <Routes>
-            <Route path='/' element={<Home />} ></Route>
-            <Route path='/Todo' element={<Todolists />} ></Route>
-            <Route path='/About' element={<Mycompoment />} ></Route>
-            <Route path='/Listuser' element={<ListUser />}></Route>
-          </Routes>
+          <Switch>
+            <Route path="/" exact component={Home} ></Route>
+            <Route path="/Todo" component={Todolists} ></Route>
+            <Route path="/About" component={Mycompoment}></Route>
+            <Route path="/Listuser" exact component={ListUser} ></Route>
+            <Route path="/Listuser/:id" component={InforUser} ></Route>
+          </Switch>
         </header>
         <ToastContainer
           position="top-right"
-          autoClose={5000}
+          autoClose={4000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
@@ -43,7 +45,7 @@ function App() {
         {/* Same as */}
         <ToastContainer />
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
